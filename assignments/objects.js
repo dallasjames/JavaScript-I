@@ -31,7 +31,7 @@ const Kennan = {
   "email": "kdiben1@tinypic.com",
   "gender": "M",
   speak: function() {
-    return ("Hello, my name is Kennan!");
+    return `Hello my name is ${this.name}!`;
   }
 }
 
@@ -55,7 +55,7 @@ const Antonietta = {
   "email": "adaine5@samsung.com",
   "gender": "F",
   multiplyNums: function(num1, num2) {
-    return (num1*num2);
+    return num1*num2;
   }
 }
 
@@ -63,19 +63,20 @@ const Antonietta = {
 // Once your objects are created, log out the following requests from HR into the console:
 
 // Mitzi's name
+console.log(Mitzi.name);
 
 // Kennan's ID
+console.log(Kennan.id);
 
 // Keven's email
+console.log(Keven.email);
 
 // Gannie's name
+console.log(Gannie.name);
 
 // Antonietta's Gender
-console.log(Mitzi.name);
-console.log(Kennan.id);
-console.log(Keven.email);
-console.log(Gannie.name);
 console.log(Antonietta.gender);
+
 // ==== Challenge 3: Object Methods ==== 
 // Give Kennan the ability to say "Hello, my name is Kennan!" Use the console.log provided as a hint.
 console.log(Kennan.speak());
@@ -93,16 +94,37 @@ console.log(Antonietta.multiplyNums(3,4));
 // 3. Nest a grandchild object in the child object with properties for name and age.  The name will be Sam and the age will be 30
 // 4. Give each of the objects the ability to speak their names using the this keyword.
 
-const parent = {}
+const parent = {
+  name: "Susan",
+  age: 70,
+  speak: function(){
+    console.log(this.name)
+  },
+  child: {
+    name: "George",
+    age: 50,
+    speak: function(){
+      console.log(this.name)
+    },
+    grandChild: {
+      name: "Sam",
+      age: 30,
+      speak: function(){
+        console.log(this.name)
+      }
+    }
+  }
+}
 
 // Log the parent object's name
-
+console.log(parent.name);
 // Log the child's age
-
+console.log(parent.child.age);
 // Log the name and age of the grandchild
-
+console.log(parent.child.grandChild.speak(), parent.child.grandChild.age);
 // Have the parent speak
-
+parent.speak();
 // Have the child speak
-
+parent.child.speak();
 // Have the grandchild speak
+parent.child.grandChild.speak();
